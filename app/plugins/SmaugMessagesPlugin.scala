@@ -17,50 +17,6 @@ import scala.util.matching._
 import scala.util.control.NonFatal
 import com.github.tototoshi.csv.CSVReader
 
-//object SmaugMessages {
-//
-//  /**
-//   * Translates a message.
-//   *
-//   * Uses `java.text.MessageFormat` internally to format the message.
-//   *
-//   * @param key the message key
-//   * @param args the message arguments
-//   * @return the formatted message or a default rendering if the key wasn’t defined
-//   */
-//  def apply(key: String, args: Any*)(implicit lang: Lang): String = {
-//    Logger.info("Get message for key: " + key)
-//    Play.maybeApplication.flatMap { app =>
-//      app.plugin[SmaugMessagesPlugin].map(_.api.translate(key, args)).getOrElse(throw new Exception("this plugin was not registered or disabled"))
-//    }.getOrElse(noMatch(key, args))
-//  }
-//
-//  /**
-//   * Retrieves all messages defined in this application.
-//   */
-//  def messages(implicit app: Application): Map[String, Map[String, String]] = {
-//    app.plugin[SmaugMessagesPlugin].map(_.api.messages).getOrElse(throw new Exception("this plugin was not registered or disabled"))
-//  }
-//
-//  private def noMatch(key: String, args: Seq[Any]) = key
-//  
-//  private class SmaugMessageParser(messageSourcePath: String) extends RegexParsers {
-//
-//    def parse = {
-//      
-//      val reader = CSVReader.open(new File(messageSourcePath))
-//      //m(1) -> source, m(2) -> target
-//      val messages = reader.all.flatMap(m => Map(m(1) -> m(2)))
-//      reader.close
-//      messages
-//    }
-//
-//}
-//
-//
-//}
-
-
 class SmaugMessagesPlugin(app: Application) extends Plugin {
 
   import scala.collection.JavaConverters._
